@@ -4,10 +4,15 @@ while True:
     pokemons_caverna=['Aggron','Larvitar','Aron','Pupitar']
     pokemons_mato=['bulbasaur','Pansage','Turtwig','Treecko']
     pokedex=[]
-#escolha do bioma
+    
+    print(f"*professor carvalho aparece*")
+    nomeJogador = input(f"Professor Carvalho - olá treinador, bem vindo ao mundo Pokemón. Eu sou o professor Carvalho, como posso te chamar? \nDigite aqui seu nome: ")
+    print(f"Professor carvalho - É um prazer te conhecer, {nomeJogador}. Esta é a cidade de Pallet, da região de Kanto!\n")
+
+    #escolha do bioma
     
     escolha=int(input("Escolha para onde deseja ir\n1. Ir para o Mato\n2. Ir para a Caverna\n3. Abrir Pokedex\n4. Sair\n:"))
-    if escolha >4:
+    if escolha >4 or escolha<0:
         print("\nNão foi possível encontrar alguma função com este número digitado!\n")
         continue
     if escolha == 1:
