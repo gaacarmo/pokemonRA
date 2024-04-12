@@ -24,7 +24,7 @@ while True:
             print(f"Você capturou o {pok}\n")
                
         elif captura == 'n':
-            print(f"Ok, você escolheu não capturar o {pok}")  
+            print(f"Ok, você escolheu não capturar o {pok}.")  
     if escolha == 3:
         print(pokedex)
             
