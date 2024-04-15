@@ -2,6 +2,7 @@
 import random
 
 #criando listas e variaveis
+pokemonsIniciais = ["Bulbasaur","Squirtle","Charmander"]
 pokemons_caverna=['Onix','Zubat','Diglet','Geodude']
 pokemons_mato=['Bulbasaur','Caterpie','Bellsprout','Abra']
 pokedex=[]
@@ -11,6 +12,18 @@ tentativas = 3
 print(f"*professor carvalho aparece*")
 nomeJogador = input(f"Professor Carvalho - olá treinador, bem vindo ao mundo Pokemón. Eu sou o professor Carvalho, como posso te chamar? \nDigite aqui seu nome: ")
 print(f"Professor carvalho - É um prazer te conhecer, {nomeJogador}. Esta é a cidade de Pallet, da região de Kanto!\n")
+
+#escolhendo um pokemon inicial
+pokeInicial = int(input(f"Você pode escolher um pokemon inicial para ser seu primeiro parceiro, escolha um\n1. Bulbasaur\n2. Squirtle\n3. Charmander\n"))
+if pokeInicial == 1:
+     print(f"{pokemonsIniciais[0]}! um tipo planta, otima escolha!")
+     pokedex.append(pokemonsIniciais[0])
+if pokeInicial == 2:
+     print(f"{pokemonsIniciais[1]}! um tipo água, otima escolha!")
+     pokedex.append(pokemonsIniciais[1])
+if pokeInicial == 3:
+     print(f"{pokemonsIniciais[2]}! um tipo fogo, otima escolha!")
+     pokedex.append(pokemonsIniciais[2])
     
     #escolha do bioma
 for i in range(0,10):  
@@ -44,7 +57,7 @@ for i in range(0,10):
              
              elif num1 != num2:
                 nova = input('Voce nao consegui capturar o pokemon!\nDeseja tentar capturar novamente? (s/n) ') #caso não haja captura e o usuarrio recebe novas opções
-               
+                print(f"você tem: {tentativas} tentativas")
                 if nova != 's':
                     print(f'Voce não capturou o {pok}!\n' ) #caso haja captura na segunda tentativa
                     
@@ -54,6 +67,7 @@ for i in range(0,10):
                 if nova == 's':
                             print(f"Você capturou o {pok}\n") 
                             pokedex.append(pok)
+                            tentativas = 3
                             
                 elif nova == 'n':
                         print(f"Ok, você escolheu não capturar o {pok}.\n")  
@@ -69,6 +83,7 @@ for i in range(0,10):
     
         #escolha de captura
         captura = input("Você deseja capturar este pokemon? (s/n): \n")
+        
         
         #checagem da escolha de captura
         if captura != "s" and captura != "n":
@@ -87,16 +102,15 @@ for i in range(0,10):
     
              elif num1 != num2:
                 nova=input('Voce nao consegui capturar o pokemon!\nDeseja tentar capturar novamente? (s/n) ') #caso não haja captura e escolha
-    
+                tentativas -= 1
+                print(f"Você tem: {tentativas} tentativas")
                 if nova != 's':
                     print(f'Voce não capturou o {pok}!\n' )
-                    
-                  
-    
+                        
                 if nova == 's':
                         print(f"Você capturou o {pok}\n")
                         pokedex.append(pok)
-                        tentativas-=1
+                        tentativas = 3
                         
                 elif nova == 'n':
                         print(f"Ok, você escolheu não capturar o {pok}.\n")  
