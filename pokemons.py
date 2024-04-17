@@ -106,18 +106,18 @@ while True:
                 if num1 == num2: #caso haja captura
                     print(f"Você capturou o {pok}\n")
                     pokedex.append(pok)
-        
-                for tentativa in tentativas !=0: #problema aq talvez nao seja while
-                    
+                    continue
+                while tentativas > 0: #problema aq talvez nao seja while
+                
                     if num1 != num2:
-                        nova = input('Voce nao consegui capturar o pokemon!\nDeseja tentar capturar novamente? (s/n) ') #caso não haja captura e o usuarrio recebe novas opções
+                        novamente = input('Voce nao consegui capturar o pokemon!\nDeseja tentar capturar novamente? (s/n) ') #caso não haja captura e o usuarrio recebe novas opções
                         tentativas-=1
                     print(f"Você tem: {tentativas} tentativas")
                     
-                    if nova != 's':
+                    if novamente != 's':
                         print(f'Voce não capturou o {pok}!\n' )
                             
-                    if nova == 's':
+                    if novamente == 's':
                             num1= random.randint(0,3)
                             num2= random.randint(0,3)
                             if num1==num2:
@@ -125,10 +125,10 @@ while True:
                                 pokedex.append(pok)
                             elif num1 != num2:
                                 print("\nO pokemon fugiu!")
-                                continue
+                                break
                         
                             
-                    elif nova == 'n':
+                    elif novamente == 'n':
                             print(f"Ok, você escolheu não capturar o {pok}.\n")  
         
                     elif captura == 'n':
