@@ -64,11 +64,7 @@ while True:
                        
                         if nova != 's':
                                 print(f'Voce não capturou o {pok}!\n' ) #caso haja captura na segunda tentativa
-                    
-                        
-                        
-                    
-                    
+                                                           
                     if nova == 's':
                                 print(f"Você capturou o {pok}\n") 
                                 pokedex.append(pok)
