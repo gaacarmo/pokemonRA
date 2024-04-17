@@ -24,15 +24,13 @@ if pokeInicial == 2:
 if pokeInicial == 3:
      print(f"{pokemonsIniciais[2]}! um tipo fogo, otima escolha!\n")
      pokedex.append(pokemonsIniciais[2])
-if tentativas == 0: #nao esta funcionando 
-        print("Você atingiu o limite de tentativas extras!")
-        
+    
     #escolha do bioma
 while True:
     escolha=int(input("Escolha para onde deseja ir\n1. Ir para a Floresta\n2. Ir para a Caverna\n3. Abrir Pokedex\n4. Sair\n:"))
     
     #checkando validade de escolha
-    if escolha > 4 or escolha < 0:
+    if escolha >4 or escolha<0:
         print("\nNão foi possível encontrar alguma função com este número digitado!\n")
         
     #criando  a escolha do bioma da Floresta
@@ -57,41 +55,27 @@ while True:
                 if num1 == num2:
                     print(f"Você capturou o {pok}\n") #caso haja a captura
                     pokedex.append(pok)
-                    continue
                 
-                while tentativas >0: #problema aq talvez nao seja while
+                while tentativas > 0: #problema aq talvez nao seja while
                     
                     if num1 != num2:
-                        novam = input('Voce nao consegui capturar o pokemon!\nDeseja tentar capturar novamente? (s/n) ') #caso não haja captura e o usuarrio recebe novas opções
+                        nova = input('Voce nao consegui capturar o pokemon!\nDeseja tentar capturar novamente? (s/n) ') #caso não haja captura e o usuarrio recebe novas opções
                         tentativas-=1
                        
-                        if novam != 's':
+                        if nova != 's':
                                 print(f'Voce não capturou o {pok}!\n' ) #caso haja captura na segunda tentativa
-<<<<<<< HEAD
                                                            
-                        if nova == 's':
-=======
-                    
-                        
-                        
-                    
-                    
-                    if novam == 's':
->>>>>>> 0917448fb6dada00981d80391856210b63c0714c
+                    if nova == 's':
                                 print(f"Você capturou o {pok}\n") 
                                 pokedex.append(pok)
                                 
                                 print(f"você tem: {tentativas} tentativas")
                                 
-<<<<<<< HEAD
-                        elif nova == 'n':
-=======
-                    elif novam == 'n':
->>>>>>> 0917448fb6dada00981d80391856210b63c0714c
+                    elif nova == 'n':
                             print(f"Ok, você escolheu não capturar o {pok}.\n")  
                     
-        elif captura == 'n':
-            print(f"Ok, você escolheu não capturar o {pok}.")  
+                    elif captura == 'n':
+                        print(f"Ok, você escolheu não capturar o {pok}.")  
             
     #caso a escolha seja a da carverna
     if escolha == 2:
@@ -149,10 +133,9 @@ while True:
     if escolha == 3:
         print(f"aqui são todos os pokemons que você ja capturou {pokedex}") 
     
-    if tentativas == 0 or novamente == ' s':
-        print("Você atingiu o limite de tentativas extras!")
-            
-            
+    if tentativas == 0: #nao esta funcionando 
+            print("Você atingiu o limite de tentativas extras!")
+            continue
     
     if escolha == 4:
             print("Até logo!")
