@@ -56,7 +56,7 @@ while True:
                     print(f"Você capturou o {pok}\n") #caso haja a captura
                     pokedex.append(pok)
                 
-                while tentativas !=0: #problema aq talvez nao seja while
+                while tentativas > 0: #problema aq talvez nao seja while
                     
                     if num1 != num2:
                         nova = input('Voce nao consegui capturar o pokemon!\nDeseja tentar capturar novamente? (s/n) ') #caso não haja captura e o usuarrio recebe novas opções
