@@ -9,24 +9,24 @@ pokedex=[]
 tentativas = 3
     
 #introdução professor carvalho, e escolha de um nome para o jogador
-print(f"*professor carvalho aparece*")
+print(f"professor carvalho aparece")
 nomeJogador = input(f"Professor Carvalho - olá treinador, bem vindo ao mundo Pokemón. Eu sou o professor Carvalho, como posso te chamar? \nDigite aqui seu nome: ")
 print(f"Professor carvalho - É um prazer te conhecer, {nomeJogador}. Esta é a cidade de Pallet, da região de Kanto!\n")
 
 #escolhendo um pokemon inicial
 pokeInicial = int(input(f"Você pode escolher um pokemon inicial para ser seu primeiro parceiro, escolha um\n1. Bulbasaur\n2. Squirtle\n3. Charmander\n"))
 if pokeInicial == 1:
-     print(f"{pokemonsIniciais[0]}! um tipo planta, otima escolha!")
+     print(f"{pokemonsIniciais[0]}! um tipo planta, otima escolha!\n")
      pokedex.append(pokemonsIniciais[0])
 if pokeInicial == 2:
-     print(f"{pokemonsIniciais[1]}! um tipo água, otima escolha!")
+     print(f"{pokemonsIniciais[1]}! um tipo água, otima escolha!\n")
      pokedex.append(pokemonsIniciais[1])
 if pokeInicial == 3:
-     print(f"{pokemonsIniciais[2]}! um tipo fogo, otima escolha!")
+     print(f"{pokemonsIniciais[2]}! um tipo fogo, otima escolha!\n")
      pokedex.append(pokemonsIniciais[2])
     
     #escolha do bioma
-for i in range(0,10):  
+while True:
     escolha=int(input("Escolha para onde deseja ir\n1. Ir para a Floresta\n2. Ir para a Caverna\n3. Abrir Pokedex\n4. Sair\n:"))
     
     #checkando validade de escolha
@@ -43,37 +43,44 @@ for i in range(0,10):
         captura = input("Você deseja capturar este pokemon? (s/n): \n")
         
         #checagem de escolha
-        if captura != "s" and captura != "n": #aqui ta bugado kk
-            print('tente novamente com uma opção válida')
+        if captura != "s" and captura != "n":
+            print('Tente novamente com uma opção válida')
         
         #caso o jogador escolha capturar: 
         if captura == 's':
              #sorteio se o jogador ira ou não capturar com uma probabilidade de captura de 50%
-             num1 = random.randint(0,1)
-             num2 = random.randint(0,1)
-             if num1 == num2:
-                print(f"Você capturou o {pok}\n") #caso haja a captura
-                pokedex.append(pok)
-             
-             elif num1 != num2:
-                nova = input('Voce nao consegui capturar o pokemon!\nDeseja tentar capturar novamente? (s/n) ') #caso não haja captura e o usuarrio recebe novas opções
-                print(f"você tem: {tentativas} tentativas")
-                if nova != 's':
-                    print(f'Voce não capturou o {pok}!\n' ) #caso haja captura na segunda tentativa
+                num1 = random.randint(0,1)
+                num2 = random.randint(0,1)
+                
+                if num1 == num2:
+                    print(f"Você capturou o {pok}\n") #caso haja a captura
+                    pokedex.append(pok)
+                
+                while tentativas !=0: #problema aq talvez nao seja while
+                    
+                    if num1 != num2:
+                        nova = input('Voce nao consegui capturar o pokemon!\nDeseja tentar capturar novamente? (s/n) ') #caso não haja captura e o usuarrio recebe novas opções
+                        tentativas-=1
+                       
+                        if nova != 's':
+                                print(f'Voce não capturou o {pok}!\n' ) #caso haja captura na segunda tentativa
+                    
+                        
+                        
                     
                     
-                    #ele não deveria dar um append aqui?
-                  
-                if nova == 's':
-                            print(f"Você capturou o {pok}\n") 
-                            pokedex.append(pok)
-                            tentativas = 3
-                            
-                elif nova == 'n':
-                        print(f"Ok, você escolheu não capturar o {pok}.\n")  
-                elif captura == 'n':
-                    print(f"Ok, você escolheu não capturar o {pok}.")  
-        
+                    if nova == 's':
+                                print(f"Você capturou o {pok}\n") 
+                                pokedex.append(pok)
+                                
+                                print(f"você tem: {tentativas} tentativas")
+                                
+                    elif nova == 'n':
+                            print(f"Ok, você escolheu não capturar o {pok}.\n")  
+                    
+                    elif captura == 'n':
+                        print(f"Ok, você escolheu não capturar o {pok}.")  
+            
     #caso a escolha seja a da carverna
     if escolha == 2:
         
@@ -92,38 +99,48 @@ for i in range(0,10):
         #caso o jogador queira tentar capturar
         if captura == 's':
              
-             #sorteando a chance de 50% da captura do pokemon
-             num1= random.randint(0,3)
-             num2= random.randint(0,3)
-    
-             if num1 == num2: #caso haja captura
-                print(f"Você capturou o {pok}\n")
-                pokedex.append(pok)
-    
-             elif num1 != num2:
-                nova=input('Voce nao consegui capturar o pokemon!\nDeseja tentar capturar novamente? (s/n) ') #caso não haja captura e escolha
-                tentativas -= 1
-                print(f"Você tem: {tentativas} tentativas")
-                if nova != 's':
-                    print(f'Voce não capturou o {pok}!\n' )
+                #sorteando a chance de 50% da captura do pokemon
+                num1= random.randint(0,3)
+                num2= random.randint(0,3)
+        
+                if num1 == num2: #caso haja captura
+                    print(f"Você capturou o {pok}\n")
+                    pokedex.append(pok)
+        
+                for tentativa in tentativas !=0: #problema aq talvez nao seja while
+                    
+                    if num1 != num2:
+                        nova = input('Voce nao consegui capturar o pokemon!\nDeseja tentar capturar novamente? (s/n) ') #caso não haja captura e o usuarrio recebe novas opções
+                        tentativas-=1
+                    print(f"Você tem: {tentativas} tentativas")
+                    
+                    if nova != 's':
+                        print(f'Voce não capturou o {pok}!\n' )
+                            
+                    if nova == 's':
+                            num1= random.randint(0,3)
+                            num2= random.randint(0,3)
+                            if num1==num2:
+                                print(f"Você capturou o {pok}\n")
+                                pokedex.append(pok)
+                            elif num1 != num2:
+                                print("\nO pokemon fugiu!")
+                                continue
                         
-                if nova == 's':
-                        print(f"Você capturou o {pok}\n")
-                        pokedex.append(pok)
-                        tentativas = 3
-                        
-                elif nova == 'n':
-                        print(f"Ok, você escolheu não capturar o {pok}.\n")  
-    
-                elif captura == 'n':
-                    print(f"Ok, você escolheu não capturar o {pok}.")
-    
+                            
+                    elif nova == 'n':
+                            print(f"Ok, você escolheu não capturar o {pok}.\n")  
+        
+                    elif captura == 'n':
+                        print(f"Ok, você escolheu não capturar o {pok}.")
+        
     if escolha == 3:
         print(f"aqui são todos os pokemons que você ja capturou {pokedex}") 
     
-    if tentativas ==0: #nao esta funcionando 
-        print("Você atingiu o limite de tentativas extras!")
-        continue
+    if tentativas == 0: #nao esta funcionando 
+            print("Você atingiu o limite de tentativas extras!")
+            continue
+    
     if escolha == 4:
-        print("Até logo!")
-        break
+            print("Até logo!")
+            break
