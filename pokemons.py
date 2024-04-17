@@ -30,7 +30,7 @@ while True:
     escolha=int(input("Escolha para onde deseja ir\n1. Ir para a Floresta\n2. Ir para a Caverna\n3. Abrir Pokedex\n4. Sair\n:"))
     
     #checkando validade de escolha
-    if escolha >4 or escolha<0:
+    if escolha > 4 or escolha < 0:
         print("\nNão foi possível encontrar alguma função com este número digitado!\n")
         
     #criando  a escolha do bioma da Floresta
@@ -65,17 +65,17 @@ while True:
                         if nova != 's':
                                 print(f'Voce não capturou o {pok}!\n' ) #caso haja captura na segunda tentativa
                                                            
-                    if nova == 's':
+                        if nova == 's':
                                 print(f"Você capturou o {pok}\n") 
                                 pokedex.append(pok)
                                 
                                 print(f"você tem: {tentativas} tentativas")
                                 
-                    elif nova == 'n':
+                        elif nova == 'n':
                             print(f"Ok, você escolheu não capturar o {pok}.\n")  
                     
-                    elif captura == 'n':
-                        print(f"Ok, você escolheu não capturar o {pok}.")  
+        elif captura == 'n':
+            print(f"Ok, você escolheu não capturar o {pok}.")  
             
     #caso a escolha seja a da carverna
     if escolha == 2:
