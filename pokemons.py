@@ -94,6 +94,58 @@ while escolhas == True:
         
         continue
     
+=======
+        #escolha randomica de pokemons encontrados na caverna
+        pok = random.choice(pokemons_mato)
+        print(f"Você entrou na Floresta e encontou um {pok}\n")
+    
+        #escolha de captura
+        captura = input("Você deseja capturar este pokemon? (s/n): \n")
+        
+        
+        #checagem da escolha de captura
+        if captura != "s" and captura != "n":
+            print('tente novamente com uma opção válida')
+        
+        #caso o jogador queira tentar capturar
+        if captura == 's':
+             
+                #sorteando a chance de 50% da captura do pokemon
+                num1= random.randint(0,1)
+                num2= random.randint(0,1)
+        
+                if num1 == num2: #caso haja captura
+                    print(f"Você capturou o {pok}\n")
+                    pokedex.append(pok)
+                    continue
+                while tentativas > 0: #problema aq talvez nao seja while
+                
+                    if num1 != num2:
+                        novamente = input('Voce nao consegui capturar o pokemon!\nDeseja tentar capturar novamente? (s/n) ') #caso não haja captura e o usuarrio recebe novas opções
+                        tentativas-=1
+                    print(f"Você tem: {tentativas} tentativas")
+                    
+                    if novamente != 's':
+                        print(f'Voce não capturou o {pok}!\n' )
+                            
+                    if novamente == 's':
+                            num1= random.randint(0,3)
+                            num2= random.randint(0,3)
+                            if num1==num2:
+                                print(f"Você capturou o {pok}\n")
+                                pokedex.append(pok)
+                            elif num1 != num2:
+                                print("\nO pokemon fugiu!")
+                                break
+                        
+                            
+                    elif novamente == 'n':
+                            print(f"Ok, você escolheu não capturar o {pok}.\n")  
+        
+                    elif captura == 'n':
+                        print(f"Ok, você escolheu não capturar o {pok}.")  
+            
+>>>>>>> f16240e657f5f1f69ef6941712a7b146cb36767e
     #caso a escolha seja a da carverna
     if escolha == 2:
         
@@ -158,4 +210,8 @@ while escolhas == True:
     
     if escolha == 4:
         print("Até logo!")
+<<<<<<< HEAD
         break
+=======
+        break
+>>>>>>> f16240e657f5f1f69ef6941712a7b146cb36767e
