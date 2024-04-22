@@ -64,7 +64,7 @@ while escolhas == True:
                                     break
                             if novamente == 'n':
                                  continue
-                            elif novamente != 's' and novamente != 'n':  
+                            elif novamente != 's' and novamente!= 'n':  
                                 print("Tente com uma opção válida!")
                                
                     if tentativas == 0:
